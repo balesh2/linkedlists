@@ -18,6 +18,11 @@ int main (){
 	printf("%d\n", length(head));
 	
 	print(head, length(head));
+	
+	delete(&head, 2);
+	
+	print(head, length(head));
+	
 	return 0;
 }
 
