@@ -19,6 +19,9 @@ int main (){
 	
 	print(head, length(head));
 	
+	sort_ascending((&head));
+	print(head, length(head));
+	
 	clear((&head));
 	
 	print(head, length(head));
