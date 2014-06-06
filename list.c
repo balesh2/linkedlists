@@ -65,6 +65,14 @@ void print(struct node *currentnode, int number) {
 	printf("\n");
 }
 
+void clear(struct node ** head) {
+	int i;
+	
+	for(i=length((*head)); i>0; i--) {
+		delete(head, 1);
+	}
+}
+
 void delete(struct node ** head, int del) {
 	int i;
 	struct node *temp = NULL;

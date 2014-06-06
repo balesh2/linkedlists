@@ -19,7 +19,7 @@ int main (){
 	
 	print(head, length(head));
 	
-	delete(&head, 4);
+	clear((&head));
 	
 	print(head, length(head));
 	
