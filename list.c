@@ -66,28 +66,49 @@ void print(struct node *currentnode, int number) {
 }
 
 void sort_ascending(struct node ** head) {
-	int i;
-	int right = 0;
 	struct node *temp;
+	struct node *temp2;
 	
 	temp = (*head);
-	do {
-		for(i=0; i<length((*head)); i++) {
-			printf("temp next val: %i", temp->next->val);
-			printf("temp val: %i", temp->val);
-			if((temp->next->val) < (temp->val)) {
-				print((*head), length((*head)));
-				push(head, temp->next->val);
-				print((*head), length((*head)));
-				delete(head, (i+3));
-				print((*head), length((*head)));
-			}
-			else {
-				right += 1;
-			}
+	do{
+		if((temp->next->val) < (temp->val)) {
+			print((*head), length((*head)));
+			temp2 = temp->next->next;
+			temp->next->next = (*head);
+			(*head) = temp->next;
+			temp->next = temp2;
+			print((*head), length((*head)));
+			temp = (*head);
+		}
+		else {
 			temp = temp->next;
 		}
-	}while(right != length((*head)));
+	}while(temp->next != NULL);
+	
+	return;
+}
+
+void sort_decending(struct node ** head) {
+	struct node *temp;
+	struct node *temp2;
+	
+	temp = (*head);
+	do{
+		if((temp->next->val) > (temp->val)) {
+			print((*head), length((*head)));
+			temp2 = temp->next->next;
+			temp->next->next = (*head);
+			(*head) = temp->next;
+			temp->next = temp2;
+			print((*head), length((*head)));
+			temp = (*head);
+		}
+		else {
+			temp = temp->next;
+		}
+	}while(temp->next != NULL);
+	
+	return;
 }
 
 void clear(struct node ** head) {
