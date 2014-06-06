@@ -67,8 +67,8 @@ void print(struct node *currentnode, int number) {
 
 void delete(struct node ** head, int del) {
 	int i;
-	struct node *temp;
-	struct node *temp2;
+	struct node *temp = NULL;
+	struct node *temp2 = NULL;
 	
 	if(del == 1) {
 		temp = (*head);
@@ -81,20 +81,17 @@ void delete(struct node ** head, int del) {
 	}
 	else {
 		temp = (*head);
-		temp->next = (*head)->next;
-		printf("temp (next): %p\n", temp->next);
+		//printf("temp : %p\n", temp);
 		for(i=1; i<(del-1); i++) {
-			printf("temp (next): %p\n", temp->next);
-			temp->next = temp->next->next;
+			//printf("temp (next): %p\n", temp->next);
+			temp = temp->next;
 		}
-		printf("temp (next): %p\n", temp->next);
-		temp2 = temp;
-		temp2->next = (temp->next->next->next);
-		printf("temp (nextx3): %p\n", temp->next->next->next);
-		printf("temp2 (next): %p\n", temp2->next);
-		free((temp->next->next));
-		printf("temp (next): %p\n", temp->next);
-		temp->next->next = temp2->next;
+		//printf("temp: %p\n", temp);
+		temp2 = temp->next->next;
+		//printf("temp (nextx2): %p\n", temp->next->next);
+		//printf("temp2: %p\n", temp2);
+		free((temp->next));
+		temp->next = temp2;
 	}
 }
 
