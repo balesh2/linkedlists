@@ -19,10 +19,13 @@ int main (){
 	
 	print(head, length(head));
 	
-	sort_decending((&head));
+	sort_descending((&head));
+	delete((&head), 2);
 	print(head, length(head));
 	
 	clear((&head));
+	sort_ascending((&head));
+	sort_descending((&head));
 	
 	print(head, length(head));
 	
